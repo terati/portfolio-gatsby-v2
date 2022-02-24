@@ -1,0 +1,53 @@
+{
+  "name": "timothy-personal",
+  "private": false,
+  "description": "personal site for timothy",
+  "version": "0.1.0",
+  "author": "Timothy Wong",
+  "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "latest",
+    "@fontsource/open-sans": "^4.5.2",
+    "@fontsource/roboto": "^4.5.1",
+    "@material-ui/core": "^4.12.3",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@mui/styles": "latest",
+    "formik": "^2.2.6",
+    "gatsby": "next",
+    "gatsby-image": "next",
+    "gatsby-plugin-image": "^2.1.2",
+    "gatsby-plugin-manifest": "next",
+    "gatsby-plugin-material-ui": "^4.0.2",
+    "gatsby-plugin-offline": "next",
+    "gatsby-plugin-react-helmet": "next",
+    "gatsby-plugin-sharp": "next",
+    "gatsby-remark-images": "^6.1.3",
+    "gatsby-remark-prismjs": "^6.3.0",
+    "gatsby-source-filesystem": "next",
+    "gatsby-transformer-remark": "^5.5.0-next.0",
+    "gatsby-transformer-sharp": "next",
+    "prismjs": "^1.25.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2"
+  },
+  "devDependencies": {
+    "prettier": "2.1.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+  }
+}

@@ -1,0 +1,17 @@
+node_modules/
+
+#gatsby files
+.cache/
+public
+
+# npm cache
+.npm
+
+# eslint cache
+.eslintcache
+
+# dotenv files
+.env
+
+# Mac files
+.DS_Store
