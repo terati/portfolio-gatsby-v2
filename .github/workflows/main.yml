@@ -1,20 +1,20 @@
-name: Build and Deploy
+# name: Build and Deploy
 
-on:
-  push:
-    branches: 
-      - master
+# on:
+#   push:
+#     branches: 
+#       - master
 
-jobs:
-  publish:
-    name: Build and deploy personal site
-    runs-on: ubuntu-latest
+# jobs:
+#   publish:
+#     name: Build and deploy personal site
+#     runs-on: ubuntu-latest
     
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2.4.0
+#     steps:
+#       - name: Checkout Code
+#         uses: actions/checkout@v2.4.0
 
-      - name: Gatsby Flow
-        uses: enriikke/gatsby-gh-pages-action@v2
-        with:
-          access-token: ${{ secrets.GATSBYPERSONAL }}
+#       - name: Gatsby Flow
+#         uses: enriikke/gatsby-gh-pages-action@v2
+#         with:
+#           access-token: ${{ secrets.GATSBYPERSONAL }}

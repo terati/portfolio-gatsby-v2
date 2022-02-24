@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import useWindowDimensions from './../hooks/WindowDimensions';
+// import useWindowDimensions from './../hooks/WindowDimensions';
 import { navigate } from "gatsby"
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -48,7 +48,9 @@ const SelectedIconDefaultStyle = {
 }
 
 function NavBar( props ) {
-  const { height, width } = useWindowDimensions();
+//   const { height, width } = useWindowDimensions();
+    const height = 1400;
+    const width = 1400;
   const { hidden, setHidden } = useState(false);
 
   // useEffect(() => {

@@ -36,7 +36,8 @@
     "redux": "^4.1.2"
   },
   "devDependencies": {
-    "prettier": "2.1.1"
+    "prettier": "2.1.1",
+    "gh-pages": "3.2.3"
   },
   "keywords": [
     "gatsby"
@@ -45,6 +46,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "deploy": "gatsby build && gh-pages -d public -b ghpages",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",

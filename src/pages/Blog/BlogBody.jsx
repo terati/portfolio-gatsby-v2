@@ -13,7 +13,7 @@ import CustomizedInput from './CustomizedInput';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Image } from '@mui/icons-material';
 import RightSidebar from '../../templates/rightSidebar';
-import useWindowDimensions from '../../hooks/WindowDimensions';
+// import useWindowDimensions from '../../hooks/WindowDimensions';
 import { makeStyles } from "@mui/styles";
 import { Link, navigate } from 'gatsby';
 import { useSelector } from 'react-redux';
@@ -62,7 +62,9 @@ function BlogBody() {
     const searchData = useSelector((state) => state.search);
     // console.log(data.allMarkdownRemark.edges);
     const [blockData, setBlockData] = React.useState(data.allMarkdownRemark.edges);
-    const { height, width } = useWindowDimensions();
+    // const { height, width } = useWindowDimensions();
+    const height = 1400;
+    const width = 1400;
     const [showData, setShowData] = React.useState(blockData);
 
     React.useEffect(() => {
