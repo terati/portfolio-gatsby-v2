@@ -1,5 +1,5 @@
 ---
-slug: "/blog/SecondBlogPost"
+slug: "/blog/image-convolution-filtering"
 date: "2021-05-07"
 title: "Image Convolution Filtering"
 featuredImage: ../images/elon.png
@@ -16,7 +16,8 @@ In image convolution, involves a kernel, or matrix that is applied over the inpu
 
 The animation below visually demonstrates how a 3x3 kernel is applied over a 5x5 input image generating a 3x3 output image. Note that the kernel slides along the input image.
 
-![KernelAnimation1](../images/animExcerpt1.PNG)
+<!-- ![KernelAnimation1](../images/animExcerpt1.PNG) -->
+![3x3KernelApplied](../images/animation1.gif)
 
 The output image pixels are calculated by performing an element by element multiplication with the kernel and the covered section of the input image and then summing them up. Given an example kernel and input image, an example of the calculation is shown below with the first pixel. In the example, I intentionally used small numbers for ease of calculation. Additionally, its important to note that the output pixels of a convolution can yield values outside of 0–255. In some cases, it may be useful to normalize the results through Histogram Equalization or round the pixels to the nearest highest/lowest value.
 
@@ -33,7 +34,7 @@ Notice that the output image size is smaller than the input image size. A larger
 
 The updated illustration with padding is shown below. Now, the output image has the same dimension as the original input image.
 
-![KernelAnimation2](../images/animExcerpt2.PNG)
+![KernelAnimation2](../images/animation2.gif)
 
 The values of the kernels have differing effects on the output image. Using an example image of the dog shown below, here are some resulting images produced by the following kernels.
 

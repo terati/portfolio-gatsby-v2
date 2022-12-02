@@ -1,5 +1,8 @@
-import "@fontsource/roboto"
-require("prismjs/themes/prism.css")
-require("./overwritePrism.css")
+import * as React from 'react';
+import "@fontsource/roboto";
+require("prismjs/themes/prism.css");
+require("./overwritePrism.css");
 export { default as wrapRootElement } from './src/store/ReduxWrapper';
+
+
 

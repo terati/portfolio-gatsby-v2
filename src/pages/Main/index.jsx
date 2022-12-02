@@ -1,7 +1,7 @@
-import React from 'react';
 import NavBar from '../../components/NavBar';
 import Box from '@mui/material/Box';
 import MainBody from './MainBody';
+import * as React from 'react';
 
 function Main() {
     return (

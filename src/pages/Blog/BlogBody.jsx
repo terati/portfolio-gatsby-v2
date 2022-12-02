@@ -17,6 +17,9 @@ import RightSidebar from '../../templates/rightSidebar';
 import { makeStyles } from "@mui/styles";
 import { Link, navigate } from 'gatsby';
 import { useSelector } from 'react-redux';
+import { ThemeContext } from '../../context/ThemeContext';
+import { themes } from '../../themes/theme';
+import './../index.css';
 
 const useStyles = makeStyles(theme => ({
   
@@ -66,6 +69,7 @@ function BlogBody() {
     const height = 1400;
     const width = 1400;
     const [showData, setShowData] = React.useState(blockData);
+    const { theme } = React.useContext(ThemeContext);
 
     React.useEffect(() => {
       let tmp = []
@@ -90,15 +94,15 @@ function BlogBody() {
           width: '100%',
           minHeight: '100vh',
           p: 1,
-        }}>
+          }}
+          style={{backgroundColor: themes[theme].background}}
+        >
           <Box component="main" 
             sx={{ 
                 display: 'flex',
                 flexDirection: 'column',
                 // maxWidth: '1500px', 
-                // backgroundColor:'#222020', 
                 width: '1000px',
-                // backgroundColor: 'red',
                 paddingTop: '10px',
                 paddingLeft: '20px',
                 paddingRight: '20px',
@@ -112,7 +116,7 @@ function BlogBody() {
               </Stack>
             </Box>
             <Box sx={{ flexGrow: 1, width: '100%' }} 
-              style={{ fontFamily: 'Roboto' }}
+              style={{ fontFamily: 'Roboto-G' }}
             >
               <Box 
                 // container 
@@ -138,7 +142,7 @@ function BlogBody() {
                   return (
                     <Box key={idx} sx={{
                         marginBottom: '20px',
-                        fontFamily: 'Roboto',
+                        fontFamily: 'Roboto-G',
                       }}
                     >
                       <Card sx={{ 
@@ -166,13 +170,13 @@ function BlogBody() {
                           justifyContent: 'center',
                         }}
                         >
-                          <Typography variant="h5">
+                          <Typography variant="h5" style={{ fontFamily: "Roboto-G"}}>
                             {node.node.frontmatter.title}
                           </Typography>
                           <Typography variant="p2" style={{color: '#494949', fontSize: '15px', paddingBottom: '10px'}}>
                             {month + ' ' + day + ', ' + year}
                           </Typography>
-                          <Typography variant="body2" style={{ fontFamily: "Roboto"}}>
+                          <Typography variant="body2" style={{ fontFamily: "Roboto-G"}}>
                             { node.node.internal.content.slice(0, 200) + '...' }
                           </Typography>
                         </CardContent>

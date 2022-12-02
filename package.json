@@ -24,6 +24,7 @@
     "gatsby-plugin-sharp": "next",
     "gatsby-remark-images": "^6.1.3",
     "gatsby-remark-prismjs": "^6.3.0",
+    "gatsby-remark-static-images": "^1.2.1",
     "gatsby-source-filesystem": "next",
     "gatsby-transformer-remark": "^5.5.0-next.0",
     "gatsby-transformer-sharp": "next",
@@ -36,8 +37,10 @@
     "redux": "^4.1.2"
   },
   "devDependencies": {
-    "prettier": "2.1.1",
-    "gh-pages": "3.2.3"
+    "eslint": "^8.9.0",
+    "eslint-plugin-react": "^7.28.0",
+    "gh-pages": "3.2.3",
+    "prettier": "2.1.1"
   },
   "keywords": [
     "gatsby"

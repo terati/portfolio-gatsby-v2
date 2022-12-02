@@ -11,16 +11,6 @@ import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-// import IconButton from '@mui/material/IconButton';
-
-// import MenuIcon from '@mui/icons-material/Menu';
-// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-// import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-// import ListItem from '@mui/material/ListItem';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import MailIcon from '@mui/icons-material/Mail';
 
 import CottageOutlinedIcon from '@mui/icons-material/CottageOutlined';
 import HomeIcon from '@mui/icons-material/Home';
@@ -28,6 +18,9 @@ import CodeIcon from '@mui/icons-material/Code';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BookOutlinedIcon from '@mui/icons-material/BookOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
+
+import { themes } from './../themes/theme';
+import { ThemeContext } from '../context/ThemeContext';
 
 const IconDefaultStyle = {
     fontSize: 30,
@@ -47,12 +40,37 @@ const SelectedIconDefaultStyle = {
   },
 }
 
+const ThemeTogglerSwitch = () => {
+    const { theme, setTheme } = React.useContext(ThemeContext);
+
+    const handler = () => {
+        console.log(setTheme);
+        if (theme === 'light'){
+            setTheme('dark');
+            console.log('hit');
+        } else {
+            setTheme('light');
+        }
+        console.log(theme);
+    }
+
+    return (
+        <button
+            onClick={handler}
+            style={{backgroundColor: themes[theme].background}}
+        >
+            Toggle Theme
+        </button>
+    )
+}
+
 function NavBar( props ) {
 //   const { height, width } = useWindowDimensions();
     const height = 1400;
     const width = 1400;
-  const { hidden, setHidden } = useState(false);
-
+    const { hidden, setHidden } = useState(false);
+    const theme = useTheme();
+    // const colorMode = React.useContext(ColorModeContext);
   // useEffect(() => {
   //   console.log(width);
   // }, [hidden])
@@ -66,7 +84,6 @@ function NavBar( props ) {
     // const handleDrawerClose = () => {
     //   setOpen(false);
     // };
-  
     return (
         <>
           {/* <CssBaseline /> */}
@@ -126,14 +143,31 @@ function NavBar( props ) {
                   width: '70px',
                   top: 0,
                   left: 0,
-                  backgroundColor: 'rgba(10,10,10,1)',
               }}>
-                  <CottageOutlinedIcon style={{height: '30px'}} sx={props.name == 'home' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} />
-                  <CodeIcon sx={props.name == 'portfolio' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Portfolio")}} />
-                  <PersonOutlineIcon sx={props.name == 'about' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/About")}} />
-                  <BookOutlinedIcon sx={props.name == 'blog' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Blog")}} />
-                  <MailOutlineOutlinedIcon sx={props.name == 'contact' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Contact")}} />
-                  {/* <p>{width}</p> */}
+                  <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                //   backgroundColor: 'rgba(10,10,10,.0)',
+                    bgcolor: 'background.default',
+                    // bgcolor: 'red',
+                    borderRadius: '30px',
+                    paddingTop: '20px',
+                    paddingBottom: '20px',
+                    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+                  }}>
+                    <CottageOutlinedIcon style={{height: '20px'}} sx={props.name == 'home' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} />
+                    <CodeIcon style={{height: '20px'}} sx={props.name == 'portfolio' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Portfolio")}} />
+                    <PersonOutlineIcon style={{height: '20px'}} sx={props.name == 'about' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/About")}} />
+                    <BookOutlinedIcon style={{height: '20px'}} sx={props.name == 'blog' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Blog")}} />
+                    <MailOutlineOutlinedIcon style={{height: '20px'}} sx={props.name == 'contact' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Contact")}} />
+                    {/* <p>{width}</p> */}
+                    {/* <button onClick={colorMode.toggleColorMode}> Yo</button>
+                    {theme.palette.mode} mode */}
+                    <ThemeTogglerSwitch />
+                  </Box>
+                  
               </Box>
           </Box>}
           {/* {width > 750 && <Box sx={{
