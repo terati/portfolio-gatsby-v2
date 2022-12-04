@@ -1,8 +1,9 @@
 ---
-slug: "/blog/my-fourth-post"
-date: "2019-05-04"
+slug: "/blog/quebite"
+date: "2022-12-01"
 title: "Fourth Blog Post"
 featuredImage: ../images/coffee.jpg
+tags: ["project", "AWS"]
 ---
 Eligendi antiopam no duo. Et his quaestio partiendo omittantur, ei his scripta officiis. No odio natum probatus mei. Nec ludus consulatu ei, per an solum aeterno equidem. An illum praesent contentiones mea. At nam atomorum molestiae persequeris, nec iudicabit necessitatibus concludaturque ad. Mea tota nostro ea, te atqui efficiendi mei. Cu scripta maluisset consetetur eam. Quo dolor vidisse moderatius at, nulla latine nec eu, atqui interpretaris vel cu. Ad vis ipsum quaerendum, per atqui recusabo interesset eu. Ad sint iudicabit has. Option aperiam probatus sea in. No has denique omnesque officiis. Quem eros corpora an his. Nulla pericula mea ei, eloquentiam ullamcorper mel ex. Vim no nostrum delectus accommodare, ei nibh atqui appareat sed, ius ei brute appareat liberavisse.
 

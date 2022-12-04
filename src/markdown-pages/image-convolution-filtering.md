@@ -3,6 +3,7 @@ slug: "/blog/image-convolution-filtering"
 date: "2021-05-07"
 title: "Image Convolution Filtering"
 featuredImage: ../images/elon.png
+tags: ["article"]
 ---
 # Image Convolution Filtering
 

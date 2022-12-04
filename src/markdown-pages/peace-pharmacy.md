@@ -3,6 +3,7 @@ slug: "/blog/peace-pharmacy"
 date: "2022-11-01"
 title: "Peace Pharmacy Web"
 featuredImage: ../images/peace_pharmacy_design.PNG
+tags: ["project"]
 ---
 The objective was to create a basic web page of Peace Pharmacy just to provide basic information that could be extended upon in the future. The page can be accessed at: [chicagopeacepharmacy.com](chicagopeacepharmacy.com). One of the main requirements was that it needed to be displayed in both English and Chinese. Most of visitors at the pharmacy spoke mandarin or chinese. The main advantage of this pharmacy seems to be the fact that the employees were able to speak chinese and the prescription labels had chinese. The basic requirements that I came up were: 
   - Text was in Chinese and English

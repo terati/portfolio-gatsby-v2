@@ -23,161 +23,175 @@ import { themes } from './../themes/theme';
 import { ThemeContext } from '../context/ThemeContext';
 
 const IconDefaultStyle = {
-    fontSize: 30,
-    margin: '15px 10px',
-    color: 'rgba(64,64,64,1)',
-    "&:hover": {
-        color: "white"
-    },
+fontSize: 30,
+margin: '15px 10px',
+color: 'rgba(64,64,64,1)',
+"&:hover": {
+  color: '#37D4B8',
+  cursor: 'pointer'
+},
 };
 
 const SelectedIconDefaultStyle = {
-  fontSize: 30,
-  margin: '15px 10px',
-  color: 'white',
-  "&:hover": {
-      color: "white"
-  },
+fontSize: 30,
+margin: '15px 10px',
+color: '#37D4B8',
+"&:hover": {
+  color: '#37D4B8',
+  cursor: 'pointer'
+// color: "white"
+},
 }
 
 const ThemeTogglerSwitch = () => {
-    const { theme, setTheme } = React.useContext(ThemeContext);
+  const { theme, setTheme } = React.useContext(ThemeContext);
 
-    const handler = () => {
-        console.log(setTheme);
-        if (theme === 'light'){
-            setTheme('dark');
-            console.log('hit');
-        } else {
-            setTheme('light');
-        }
-        console.log(theme);
+  const handler = () => {
+    console.log(setTheme);
+    if (theme === 'light'){
+      setTheme('dark');
+      console.log('hit');
+    } else {
+      setTheme('light');
     }
+    console.log(theme);
+}
 
-    return (
-        <button
-            onClick={handler}
-            style={{backgroundColor: themes[theme].background}}
-        >
-            Toggle Theme
-        </button>
-    )
+return (
+  <button
+    onClick={handler}
+    style={{backgroundColor: themes[theme].background}}
+  >
+    Toggle Theme
+  </button>
+)
 }
 
 function NavBar( props ) {
-//   const { height, width } = useWindowDimensions();
-    const height = 1400;
-    const width = 1400;
-    const { hidden, setHidden } = useState(false);
-    const theme = useTheme();
-    // const colorMode = React.useContext(ColorModeContext);
+  //   const { height, width } = useWindowDimensions();
+  const height = 1400;
+  // const width = 1400;
+  const { hidden, setHidden } = useState(false);
+  const theme = useTheme();
+  // const colorMode = React.useContext(ColorModeContext);
   // useEffect(() => {
   //   console.log(width);
   // }, [hidden])
-    // const theme = useTheme();
-    // const [open, setOpen] = React.useState(false);
-  
-    // const handleDrawerOpen = () => {
-    //   setOpen(true);
-    // };
-  
-    // const handleDrawerClose = () => {
-    //   setOpen(false);
-    // };
-    return (
-        <>
-          {/* <CssBaseline /> */}
-            {width < 1050 && 
-            <Box sx={{
-                    position: 'fixed',
-                    top: '0px',
-                    left: '0px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '100vh',
-                    width: '100vw',
-                    zIndex: '99',
-                    backgroundColor: 'black',
-                    color: 'white',
-                    margin: '0px',
-                    padding: '0px',
-                    overflow: 'hidden',
-                }}
-            >
-                <Box sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    overflow: 'hidden',
-                    padding: '10px, 20px',
-                }}>
-                    <Typography variant='h5' onClick={() => {navigate("/")}} > Home </Typography>
-                    <Typography variant='h5' onClick={() => {navigate("/Portfolio")}} > Portfolio </Typography>
-                    <Typography variant='h5' onClick={() => {navigate("/About")}} > About </Typography>
-                    <Typography variant='h5' onClick={() => {navigate("/Blog")}}> Blog </Typography>
-                    <Typography variant='h5' onClick={() => {navigate("/Contact")}}> Contact </Typography>
-                </Box>
-            </Box> 
-            }
+  // const theme = useTheme();
+  // const [open, setOpen] = React.useState(false);
 
-          {width >= 1050 && <Box sx={{ 
-              display: 'flex',
-              alignItems: 'center',
-              height: '100%', 
-              // backgroundColor: 'rgba(10,10,10,1)',
-              padding: '10px',
-              position: 'absolute',
-              width: '70px',
-              top: 0,
-              left: 0,
-              // right: 0,
-          }}>
-              <Box sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  position: 'fixed',
-                  alignItems: 'center',
-                  height: '100%',
-                  width: '70px',
-                  top: 0,
-                  left: 0,
-              }}>
-                  <Box sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                //   backgroundColor: 'rgba(10,10,10,.0)',
-                    bgcolor: 'background.default',
-                    // bgcolor: 'red',
-                    borderRadius: '30px',
-                    paddingTop: '20px',
-                    paddingBottom: '20px',
-                    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
-                  }}>
-                    <CottageOutlinedIcon style={{height: '20px'}} sx={props.name == 'home' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} />
-                    <CodeIcon style={{height: '20px'}} sx={props.name == 'portfolio' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Portfolio")}} />
-                    <PersonOutlineIcon style={{height: '20px'}} sx={props.name == 'about' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/About")}} />
-                    <BookOutlinedIcon style={{height: '20px'}} sx={props.name == 'blog' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Blog")}} />
-                    <MailOutlineOutlinedIcon style={{height: '20px'}} sx={props.name == 'contact' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Contact")}} />
-                    {/* <p>{width}</p> */}
-                    {/* <button onClick={colorMode.toggleColorMode}> Yo</button>
-                    {theme.palette.mode} mode */}
-                    <ThemeTogglerSwitch />
-                  </Box>
-                  
-              </Box>
-          </Box>}
-          {/* {width > 750 && <Box sx={{
-              display: 'flex',
-              top: 0,
-              left: 0,
-              width: '90px',
-          }}></Box> } */}
-        </>
-    );
-  }
+  // const handleDrawerOpen = () => {
+  //   setOpen(true);
+  // };
+
+  // const handleDrawerClose = () => {
+  //   setOpen(false);
+  // };
+  return (
+  <>
+
+  {/* <Box sx={{
+  position: 'fixed',
+  top: '0px',
+  left: '0px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100vh',
+  width: '100vw',
+  zIndex: '99',
+  backgroundColor: 'black',
+  color: 'white',
+  margin: '0px',
+  padding: '0px',
+  overflow: 'hidden',
+  }}
+  >
+  <Box sx={{
+  display: 'flex',
+  flexDirection: 'column',
+  overflow: 'hidden',
+  padding: '10px, 20px',
+  }}>
+  <Typography variant='h5' onClick={() => {navigate("/")}} > Home </Typography>
+  <Typography variant='h5' onClick={() => {navigate("/Portfolio")}} > Portfolio </Typography>
+  <Typography variant='h5' onClick={() => {navigate("/About")}} > About </Typography>
+  <Typography variant='h5' onClick={() => {navigate("/Blog")}}> Blog </Typography>
+  <Typography variant='h5' onClick={() => {navigate("/Contact")}}> Contact </Typography>
+  </Box>
+  </Box>  */}
+
+
+  <Box sx={{ 
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%', 
+    padding: '10px',
+    position: 'sticky',
+    width: '100%',
+    height: '70px',
+    top: 0,
+    left: 0,
+    // backgroundColor: 'white',
+    backdropFilter: 'blur(20px)',
+    boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.10)',
+    zIndex: 99,
+  }}>
+    <Box sx={{
+      display: 'flex',
+      flexDirection: 'row',
+      position: 'relative',
+      justifyContent: 'space-between',
+      // padding: '0 160px',
+      maxWidth: '1200px',
+      alignItems: 'center',
+      height: '100%',
+      width: '100%',
+      top: 0,
+      left: 0,
+    }}>
+      <Box sx={{
+        // padding: '5px 50px',
+        // height: '100%',
+        // borderRadius: '20px',
+        // backgroundColor: 'white',
+      }}>
+        <Typography variant="h5">
+          Blog
+        </Typography>
+      </Box>
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        bgcolor: 'background.default',
+        borderRadius: '30px',
+        paddingTop: '20px',
+        paddingBottom: '20px',
+        height: '100%',
+        // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+      }}>
+        <CottageOutlinedIcon style={{height: '20px'}} sx={props.name == 'home' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} />
+        <CodeIcon style={{height: '20px'}} sx={props.name == 'portfolio' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Portfolio")}} />
+        <PersonOutlineIcon style={{height: '20px'}} sx={props.name == 'about' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/About")}} />
+        <BookOutlinedIcon style={{height: '20px'}} sx={props.name == 'blog' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Blog")}} />
+        <MailOutlineOutlinedIcon style={{height: '20px'}} sx={props.name == 'contact' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Contact")}} />
+        <ThemeTogglerSwitch />
+      </Box>
+
+    </Box>
+  </Box>
+  {/* {width > 750 && <Box sx={{
+  display: 'flex',
+  top: 0,
+  left: 0,
+  width: '90px',
+  }}></Box> } */}
+  </>
+  );
+}
 
 export default NavBar

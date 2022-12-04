@@ -3,6 +3,7 @@ slug: "/blog/react-hooks"
 date: "2020-11-20"
 title: "React Hooks"
 featuredImage: ../images/hooks.jpg
+tags: ["article", "react"]
 ---
 
 React hooks were introduced in February 2019 as a part of React 16.8. It brought state and lifecycle methods which was previously only available in class components into functional components which lended to simpler code. Hooks are reccommended but completely opt-in.

@@ -6,6 +6,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
+import Chip from '@mui/material/Chip';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -19,12 +20,13 @@ import { Link, navigate } from 'gatsby';
 import { useSelector } from 'react-redux';
 import { ThemeContext } from '../../context/ThemeContext';
 import { themes } from '../../themes/theme';
+import { styled } from '@mui/material/styles';
 import './../index.css';
 
 const useStyles = makeStyles(theme => ({
   
   HoverFocus: {
-    borderRadius: '20px',
+    // borderRadius: '20px',
     border: '10px solid white',
     transition: '.5s ease',
     "&:hover, &.Mui-focusVisible": 
@@ -37,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 function BlogBody() {
     const data = useStaticQuery(graphql`
         query MyQuery {
-            allMarkdownRemark {
+            allMarkdownRemark(sort: {fields: frontmatter___date}) {
                 edges {
                   node {
                     rawMarkdownBody
@@ -49,6 +51,7 @@ function BlogBody() {
                       date
                       slug
                       title
+                      tags
                       featuredImage {
                         absolutePath
                         childImageSharp {
@@ -65,6 +68,8 @@ function BlogBody() {
     const searchData = useSelector((state) => state.search);
     // console.log(data.allMarkdownRemark.edges);
     const [blockData, setBlockData] = React.useState(data.allMarkdownRemark.edges);
+    const [tags, setTags] = React.useState([]);
+
     // const { height, width } = useWindowDimensions();
     const height = 1400;
     const width = 1400;
@@ -72,12 +77,52 @@ function BlogBody() {
     const { theme } = React.useContext(ThemeContext);
 
     React.useEffect(() => {
-      let tmp = []
+      let set = new Set();
+      let tmptags;
       blockData.forEach((node) => {
-        if ( node.node.frontmatter.title.toLowerCase().includes(searchData.toLowerCase()) == true){
-          tmp.push(node)
+        tmptags = node.node.frontmatter.tags; 
+        if (tmptags && tmptags.length>0) {
+          for (let i=0; i<tmptags.length; ++i) {
+            set.add(tmptags[i]);
+          }
         }
       })
+      let arr = Array.from(set).sort();
+      let tmparr = [];
+      for (let i=0; i<arr.length; ++i) {
+        tmparr.push([arr[i], false]);
+      }
+      setTags(tmparr);
+    }, [])
+
+    React.useEffect(() => {
+      let tmp = [];
+      let tagFlag = false;
+      for (let i=0; i<tags.length; ++i) tagFlag = tagFlag || tags[i][1];
+      if (!tagFlag) {
+        blockData.forEach((node) => {
+          if ( node.node.frontmatter.title.toLowerCase().includes(searchData.toLowerCase()) == true){
+            tmp.push(node);
+          }
+        })
+      } else {
+        let set = new Set();
+        for (let i=0; i<tags.length; ++i) {
+          if (tags[i][1]) set.add(tags[i][0]);
+        }
+        blockData.forEach((node) => {
+          if ( node.node.frontmatter.title.toLowerCase().includes(searchData.toLowerCase()) == true) {
+            if (!node.node.frontmatter.tags) return;
+            for (let i=0; i<node.node.frontmatter.tags.length; ++i) {
+              if (set.has(node.node.frontmatter.tags[i])) {
+                tmp.push(node);
+                break;
+              } 
+            }
+            
+          }
+        })
+      }
       setShowData(tmp);
       // let result = blockData.filter((node) => {
       //   node.node.frontmatter.title.toLowerCase().includes(searchData.toLowerCase())
@@ -85,15 +130,21 @@ function BlogBody() {
       //   // console.log(node.node.frontmatter.title.toLowerCase().includes(searchData.toLowerCase()));
       // })
       // console.log(blockData);
-    }, [searchData])
+    }, [searchData, tags])
+
+    const handleToggleTag = (idx) => {
+      let newTags = [...tags];
+      newTags[idx][1] = !newTags[idx][1];
+      setTags(newTags);
+    }
 
     return (
         <Box component="main" sx={{ 
-          display: 'flex',
-          justifyContent: 'center',
-          width: '100%',
-          minHeight: '100vh',
-          p: 1,
+            display: 'flex',
+            justifyContent: 'center',
+            width: '100%',
+            minHeight: '100vh',
+            p: 1,
           }}
           style={{backgroundColor: themes[theme].background}}
         >
@@ -110,11 +161,38 @@ function BlogBody() {
                 justifyContent: "flex-start",
                 alignItems: "flex-start",
             }}>
-            <Box>
-              <Stack direction="row" spacing={2} alignItems="center" justifyContent="flex-start">
+            <Box sx={{
+              width: '100%',
+            }}>
+              <Stack direction="row" spacing={2} alignItems="center" justifyContent="flex-start"
+                sx={{
+                  width: '100%',
+                }}
+              >
                 <CustomizedInput />
+
               </Stack>
             </Box>
+            <Stack direction="row"
+              sx={{
+                padding: '5px 10px'
+              }}
+            >
+              { tags && tags.map((value, idx) => {
+                return (
+                  <Chip
+                    id = {idx}
+                    variant={value[1] ? "filled" : "outlined"}
+                    label={value[0]}
+                    color="secondary"
+                    sx={{ padding: '5px', margin: '2px 5px' }}
+                    onClick={() => handleToggleTag(idx)}
+                  /> 
+                )
+                }) 
+              }
+            </Stack>
+           
             <Box sx={{ flexGrow: 1, width: '100%' }} 
               style={{ fontFamily: 'Roboto-G' }}
             >
@@ -129,8 +207,8 @@ function BlogBody() {
                   display: 'flex',
                   flexDirection: 'column',
                   width: '100%',
-                  paddingRight: '50px',
-                  borderRight: '1px solid #E4E4E4'
+                  // paddingRight: '50px',
+                  // borderRight: '1px solid #E4E4E4'
                 }}
               >
 
@@ -147,9 +225,9 @@ function BlogBody() {
                     >
                       <Card sx={{ 
                           display: 'flex',
-                          flexDirection: 'row',
-                          borderRadius: 0, 
-                          maxHeight: '300px', 
+                          flexDirection: { xs: 'column', md:'row', },
+                          borderRadius: '20px', 
+                          maxHeight: { xs: '500px', md:'300px' }, 
                           backgroundColor: 'white', 
                           color: 'black', boxShadow: 8, 
                         }} 

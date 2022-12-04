@@ -1,0 +1,10 @@
+
+.rightSidebar {
+  display: block; 
+}
+
+@media screen and (max-width: 1000px) {
+  .rightSidebar {
+    display:  none !important;
+  }
+}

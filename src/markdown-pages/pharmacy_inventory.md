@@ -3,6 +3,7 @@ slug: "/blog/pharmacy_inventory"
 date: "2022-11-01"
 title: "Pharmacy Inventory System"
 featuredImage: ../images/pharmacy_inventory_system.PNG
+tags: ["project", "postgres"]
 ---
 
 Tracking the inventory of prescription medication is important in to regulate from both a financial and safety standpoint. Traditionally, inventory is done by hand but modern software in the healthcare industry have made it more automated. All pharmaceutical products in the use are mandated to have 1d barcodes containing a National Drug Code(NDC) which is a unique product identifier for drugs intended for human use. The NDC is a unique 11-digit, 3-segment can be in one of the 3 configurations: 4-4-2, 5-3-2, or 5-4-1. The partitioning representing the labeler identifier, the product code, and the package code. A newer standard for medication mandates an additional GS1 barcode which is a 2D barcode that in addition to the NDC encoding, also contains information on the expiration date, batch number, and serial number. 

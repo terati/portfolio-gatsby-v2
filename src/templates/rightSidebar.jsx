@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { StaticImage } from 'gatsby-plugin-image';
 import { useStaticQuery, graphql } from 'gatsby';
+import "./rightSidebar.css";
 
 function RightSidebar() {
   const data = useStaticQuery(graphql`
@@ -32,15 +33,27 @@ function RightSidebar() {
             flexDirection: 'column',
             width: '300px',
             maxWidth: '300px',
-            height: '500px',
+            height: '100%',
             marginTop: '100px',
-            padding: '20px',
+            // padding: '20px',
             color: 'black',
-            backgroundColor: 'white',
+            // backgroundColor: 'white',
             // display: 'none',
             // backgroundColor: '#3E3E3E',
-          }}>
-            <Box sx={{ position: 'fixed', top: '100px', width: '300px' }}>
+          }}
+            className="rightSidebar"
+          >
+            <Box sx={{ 
+              position: 'fixed',
+              fontFamily: 'Roboto',
+              top: '100px',
+              bottom: '20px',
+              width: '300px',
+              backgroundColor: 'white',
+              padding: '20px',
+              borderRadius: '20px',
+              boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.10)',
+            }}>
               <Box>
                 <Stack direction='row' justifyContent='flex-start' alignItems='center' spacing={2}>
                   {/* <Avatar alt="Timothy Wong" src="../images/gatsby-astronaut.png"> </Avatar> */}

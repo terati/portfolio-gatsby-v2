@@ -1,6 +1,6 @@
 ---
 slug: "/blog/my-fifth-post"
-date: "2019-05-04"
+date: "2022-05-04"
 title: "Javascript ES6 Stuff I Learned"
 featuredImage: ../images/gatsby-astronaut.png
 description: "Some description"

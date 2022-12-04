@@ -8,6 +8,7 @@ function Main() {
         <>
             <Box sx={{ 
                 display: 'flex',
+                flexDirection: 'column',
                 height: '100%',
                 width: '100%',
                 minHeight: '100%',
@@ -20,7 +21,7 @@ function Main() {
                     display: 'flex',
                     justifyContent: 'center',
                     width: '100%',
-                    p: 1,
+                    p: 0,
                 }}>
                     <BlogBody />
                 </Box>
