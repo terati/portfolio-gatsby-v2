@@ -97,11 +97,11 @@ function AboutBody() {
                   </Typography>
 
                   <Typography variant='h6' sx={{ color: "white" }}>
-                      I have a Bachelors of Science in Electrical Engineering from the University of Illinois at Urbana Champaign.
+                    I am a self-taught coder for the most part. I do have a Bachelors of Science in Electrical Engineering from the University of Illinois at Urbana Champaign.
                   </Typography>
 
                   <Typography variant='h6' sx={{ color: "white" }}>
-                      Creatively curious.
+                    Welcome to my blog of interesting stuff and projects. Creatively curious.
                   </Typography>
 
                 </Box>

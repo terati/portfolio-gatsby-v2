@@ -16,7 +16,7 @@ function Main() {
                 backgroundColor: '#222020',
                 color: '#37D4B8',
             }}>
-                <NavBar name='about'/> 
+                <NavBar name='about' text={"About"}/> 
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'center',

@@ -68,6 +68,9 @@ return (
 }
 
 function NavBar( props ) {
+  const {
+    text = ""
+  } = props;
   //   const { height, width } = useWindowDimensions();
   const height = 1400;
   // const width = 1400;
@@ -159,7 +162,7 @@ function NavBar( props ) {
         // backgroundColor: 'white',
       }}>
         <Typography variant="h5">
-          Blog
+          { text }
         </Typography>
       </Box>
       <Box sx={{
@@ -174,11 +177,11 @@ function NavBar( props ) {
         height: '100%',
         // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
       }}>
-        <CottageOutlinedIcon style={{height: '20px'}} sx={props.name == 'home' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} />
-        <CodeIcon style={{height: '20px'}} sx={props.name == 'portfolio' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Portfolio")}} />
+        {/* <CottageOutlinedIcon style={{height: '20px'}} sx={props.name == 'home' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} />
+        <CodeIcon style={{height: '20px'}} sx={props.name == 'portfolio' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Portfolio")}} /> */}
         <PersonOutlineIcon style={{height: '20px'}} sx={props.name == 'about' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/About")}} />
         <BookOutlinedIcon style={{height: '20px'}} sx={props.name == 'blog' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Blog")}} />
-        <MailOutlineOutlinedIcon style={{height: '20px'}} sx={props.name == 'contact' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Contact")}} />
+        {/* <MailOutlineOutlinedIcon style={{height: '20px'}} sx={props.name == 'contact' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Contact")}} /> */}
         <ThemeTogglerSwitch />
       </Box>
 

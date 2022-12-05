@@ -44,7 +44,7 @@ export default function Template({
                   backgroundColor: 'white',
                   color: 'black',
               }}>
-        <NavBar name='blog'/> 
+        <NavBar name='blog' text={"Blog"} /> 
         <Box sx={{
             display: 'flex',
             justifyContent: 'start',
