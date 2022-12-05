@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     // borderRadius: '20px',
     border: '10px solid white',
     transition: '.5s ease',
+    cursor: 'pointer',
     "&:hover, &.Mui-focusVisible": 
     { 
       border: '10px solid #333333',
@@ -164,8 +165,9 @@ function BlogBody() {
             <Box sx={{
               width: '100%',
             }}>
-              <Stack direction="row" spacing={2} alignItems="center" justifyContent="flex-start"
+              <Stack direction="row" alignItems="center" justifyContent="flex-start"
                 sx={{
+                  // height: '30px',
                   width: '100%',
                 }}
               >
@@ -185,7 +187,11 @@ function BlogBody() {
                     variant={value[1] ? "filled" : "outlined"}
                     label={value[0]}
                     color="secondary"
-                    sx={{ padding: '5px', margin: '2px 5px' }}
+                    sx={{ 
+                      paddingRight: '5px', 
+                      margin: '2px 5px',
+                      boxShadow: 3,
+                    }}
                     onClick={() => handleToggleTag(idx)}
                   /> 
                 )
@@ -257,6 +263,21 @@ function BlogBody() {
                           <Typography variant="body2" style={{ fontFamily: "Roboto-G"}}>
                             { node.node.internal.content.slice(0, 200) + '...' }
                           </Typography>
+                          <Stack direction="row">
+                            { node.node.frontmatter.tags &&
+                              node.node.frontmatter.tags.map((value, idx) => {
+                                return (
+                                  <Chip
+                                    id={"inner_chip_"+idx}
+                                    variant={"outlined"}
+                                    label={value}
+                                    color="primary"
+                                    sx={{ padding:'2px', margin:'2px 5px' }}
+                                  />
+                                )
+                              })
+                            }
+                          </Stack>
                         </CardContent>
 
                       </Card>

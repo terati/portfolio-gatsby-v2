@@ -33,8 +33,12 @@ export default function Template({
     <>
       <Box sx={{ 
                   display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'column',
                   height: '100%',
                   width: '100%',
+                  maxWidth: '100vw',
                   minHeight: '100%',
                   // backgroundColor: '#222020',
                   backgroundColor: 'white',
@@ -43,23 +47,25 @@ export default function Template({
         <NavBar name='blog'/> 
         <Box sx={{
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'start',
+            maxWidth: '800px',
             width: '100%',
-            p: 1,
+            p: 0,
+            paddingTop: '10px',
             // m: 1,
         }}>
           <Box component="main" sx={{ 
             display: 'flex',
-            maxWidth: '900px', 
-            paddingTop: '10px',
+            // maxWidth: '900px', 
+            // paddingTop: '10px',
             paddingLeft: '20px',
             paddingRight: '20px',
-            paddingBottom: '20px',
+            paddingBottom: '0',
             // justifyContent: "flex-start",
-            alignItems: "flex-start",
+            // alignItems: "flex-start",
 
             fontFamily: 'Open Sans',
-            borderRight: '1px solid #E4E4E4',
+            // borderRight: '1px solid #E4E4E4',
           }}>
             <div className="blog-post-container">
               <div className="blog-post" style={{boxSizing: 'border-box'}}>
@@ -68,6 +74,9 @@ export default function Template({
                   alignItems='center'
                   gap={1}
                   spacing={2}
+                  sx={{
+                    maxWidth: '100%',
+                  }}
                 >
                   <ArrowBackIosNewIcon onClick={() => navigate('/Blog')}
                     className={classes.HoverFocus}
@@ -96,24 +105,34 @@ export default function Template({
                   >TW</Avatar> */}
                 {/* </Stack> */}
                 <Img fluid={featuredImgFluid} />
-                <div
+                <Box
                   className="blog-post-content"
                   dangerouslySetInnerHTML={{ __html: html }}
+                  sx={{
+                    maxWidth: '100vw',
+                  }}
                 />
               </div>
               <Box 
-                width='100%'
+                // width='100%'
                 sx={{
                   display: 'flex',
                   height: '100px',
                   width: '100%',
+                  maxWidth: '100vw',
                   alignItems: 'center',
                   justifyContent: 'center',
                   alignItems: 'start',
                   fontSize: 'smaller',
+                  backgroundColor: '#37D4B8',
+                  color: 'white',
+                  padding: '20px 10px',
+                  fontFamily: 'Roboto',
+                  fontSize: '1em',
+                  borderRadius: '20px 20px 0 0',
                 }}
               >
-                    © 2021 - Timothy Wong
+                  Copyright © 2022 Designed and Created by Timothy
               </Box>
             </div>
             

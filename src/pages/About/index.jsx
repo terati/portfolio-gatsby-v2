@@ -8,6 +8,8 @@ function Main() {
         <>
             <Box sx={{ 
                 display: 'flex',
+                flexDirection: 'column',
+                
                 height: '100%',
                 width: '100%',
                 minHeight: '100%',
@@ -18,6 +20,7 @@ function Main() {
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'center',
+                    alignItems: 'center',
                     width: '100%',
                     p: 1,
                     // m: 1,

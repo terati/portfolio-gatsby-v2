@@ -37,16 +37,18 @@ export default function CustomizedInput() {
   return (
     <Paper
       component="form"
-      sx={{ p: '10px 10px', 
-      display: 'flex', 
-      alignItems: 'center', 
-      width: '100%', 
-      maxWidth: '500px',
-      height: 50,
-      backgroundColor: 
-      fillinColor, 
-      boxShadow: 3,
-      borderRadius: '50px',
+      sx={{ 
+        p: '10px 10px',
+        m: '5px',
+        display: 'flex', 
+        alignItems: 'center', 
+        width: '100%', 
+        maxWidth: '500px',
+        // height: 50,
+        backgroundColor: 
+        fillinColor, 
+        boxShadow: 3,
+        borderRadius: '50px',
     }}
     >
       <InputBase
