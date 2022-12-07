@@ -5,7 +5,8 @@ import { red } from '@mui/material/colors';
 
 import Layout from "../components/layout";
 import NavBar from "../components/NavBar";
-import Main from "./Main";
+import Main from "../components/Main";
+import About from "../components/About";
 import "./index.css";
 
 // export const ThemeContext = React.createContext({
@@ -24,7 +25,7 @@ const IndexPage = () => {
 
   return (
     // <ThemeContext.Provider value={value}>
-      <Main />
+      <About />
     // </ThemeContext.Provider>
   )
  

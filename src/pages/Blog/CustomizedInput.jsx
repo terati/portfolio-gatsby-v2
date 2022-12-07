@@ -8,6 +8,9 @@ import ReduxStore from '../../store/ReduxStore';
 import { useSelector } from 'react-redux';
 import { saveSearch } from '../../actions/SearchBlog';
 
+import { ThemeContext } from '../../context/ThemeContext';
+import { themes } from '../../themes/theme';
+
 const fillinColor = 'white'
 const MAXWIDTH = 400;
 const MINWIDTH = 50;
@@ -15,6 +18,8 @@ export default function CustomizedInput() {
     const [width, setWidth] = React.useState(MINWIDTH);
     const [searchFlag, setSearchFlag] = React.useState(0);
     const searchData = useSelector(state => state);
+
+    const { theme } = React.useContext(ThemeContext);
 
     // React.useEffect(() => {
     //     if (searchFlag == 1 && width < MAXWIDTH){
@@ -45,26 +50,31 @@ export default function CustomizedInput() {
         width: '100%', 
         maxWidth: '500px',
         // height: 50,
-        backgroundColor: 
+        backgroundColor: themes[theme].foreground,
         fillinColor, 
         boxShadow: 3,
         borderRadius: '50px',
     }}
     >
       <InputBase
-        sx={{ ml: 1, flex: 1, color: 'black', }}
-        placeholder="Search"
+        sx={{ 
+          ml: 1, 
+          flex: 1, 
+          color: themes[theme].neutral_test
+        }}
+        color={themes[theme].foreground}
+        placeholder="Search articles"
         inputProps={{ 'aria-label': 'search google maps' }}
         onFocus={() => setSearchFlag(1)}
         onBlur={() => setSearchFlag(2)}
         onChange={(e) => {
           let tmp = ReduxStore.dispatch(saveSearch(e.target.value));
-          // console.log(searchData);
-
-          // console.log(e.target.value);
         }}
       />
-      <IconButton type="submit" style={{ color: 'grey'  }} sx={{ p: '0px', }} aria-label="search" disabled>
+      <IconButton type="submit" style={{ color: 'grey'  }} 
+        sx={{ 
+          p: '0px', 
+        }} aria-label="search" disabled>
         <SearchIcon />
       </IconButton>
     </Paper>

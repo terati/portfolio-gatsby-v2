@@ -1,6 +1,6 @@
 ---
 slug: "/blog/pharmacy_inventory"
-date: "2022-11-01"
+date: "2022-11-27"
 title: "Pharmacy Inventory System"
 featuredImage: ../images/pharmacy_inventory_system.PNG
 tags: ["project", "postgres"]

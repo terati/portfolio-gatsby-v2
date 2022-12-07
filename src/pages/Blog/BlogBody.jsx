@@ -23,11 +23,16 @@ import { themes } from '../../themes/theme';
 import { styled } from '@mui/material/styles';
 import './../index.css';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(stl => {
+  const { theme } = React.useContext(ThemeContext);
+  return ({
   
   HoverFocus: {
     // borderRadius: '20px',
-    border: '10px solid white',
+    // border: '10px solid black',
+    borderWidth: '10px',
+    borderStyle: 'solid',
+    
     transition: '.5s ease',
     cursor: 'pointer',
     "&:hover, &.Mui-focusVisible": 
@@ -35,12 +40,13 @@ const useStyles = makeStyles(theme => ({
       border: '10px solid #333333',
     },
   }
-}));
+  })
+});
 
 function BlogBody() {
     const data = useStaticQuery(graphql`
         query MyQuery {
-            allMarkdownRemark(sort: {fields: frontmatter___date}) {
+            allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
                 edges {
                   node {
                     rawMarkdownBody
@@ -222,7 +228,7 @@ function BlogBody() {
                   const image = getImage(node.node.frontmatter.featuredImage.childImageSharp)
                   let [year, month, day] = node.node.frontmatter.date.split('-')
                   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-                  month = months[parseInt(month)]
+                  month = months[parseInt(month)-1]
                   return (
                     <Box key={idx} sx={{
                         marginBottom: '20px',
@@ -234,8 +240,10 @@ function BlogBody() {
                           flexDirection: { xs: 'column', md:'row', },
                           borderRadius: '20px', 
                           maxHeight: { xs: '500px', md:'300px' }, 
-                          backgroundColor: 'white', 
-                          color: 'black', boxShadow: 8, 
+                          backgroundColor: themes[theme].foreground,
+                          borderColor: themes[theme].foreground,
+                          color: themes[theme].neutral_test, 
+                          boxShadow: 8, 
                         }} 
                         onClick={() => navigate(node.node.frontmatter.slug)} 
                         style={{ 
@@ -254,10 +262,14 @@ function BlogBody() {
                           justifyContent: 'center',
                         }}
                         >
-                          <Typography variant="h5" style={{ fontFamily: "Roboto-G"}}>
+                          <Typography variant="h5" style={{ fontFamily: "Roboto-G"}}
+                            sx={{
+                              color: themes[theme].neutral_test,
+                            }}
+                          >
                             {node.node.frontmatter.title}
                           </Typography>
-                          <Typography variant="p2" style={{color: '#494949', fontSize: '15px', paddingBottom: '10px'}}>
+                          <Typography variant="p2" style={{color: themes[theme].selection_test, fontSize: '15px', paddingBottom: '10px'}}>
                             {month + ' ' + day + ', ' + year}
                           </Typography>
                           <Typography variant="body2" style={{ fontFamily: "Roboto-G"}}>
@@ -271,8 +283,12 @@ function BlogBody() {
                                     id={"inner_chip_"+idx}
                                     variant={"outlined"}
                                     label={value}
-                                    color="primary"
-                                    sx={{ padding:'2px', margin:'2px 5px' }}
+                                    sx={{ 
+                                      padding:'2px', 
+                                      margin:'2px 5px',
+                                      color: themes[theme].selection_test
+                                    }}
+                                  
                                   />
                                 )
                               })

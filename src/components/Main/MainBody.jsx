@@ -8,28 +8,28 @@ function MainBody() {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
 
-    const getSize = () => {
-        const newWidth = sizeRef.current.clientWidth;
-        setWidth(newWidth);
+    // const getSize = () => {
+    //     const newWidth = sizeRef.current.clientWidth;
+    //     setWidth(newWidth);
 
-        const newHeight = sizeRef.current.clientHeight;
-        setHeight(newHeight);
-    }
+    //     const newHeight = sizeRef.current.clientHeight;
+    //     setHeight(newHeight);
+    // }
 
     useEffect(() => {
-        window.addEventListener("resize", getSize)
-        getSize();
+        // window.addEventListener("resize", getSize)
+        // getSize();
     }, [])
 
     return (
         <Box component="main" 
-            ref={sizeRef}
+            // ref={sizeRef}
             sx={{ 
                 flexGrow: 1, 
                 display: 'flex',
                 flexDirection: 'column',
                 margin: '0px',
-                marginLeft: '70px',
+                marginLeft: '0px',
                 minHeight: '100vh',
                 backgroundColor: '#222020',
                 color: '#37D4B8',
@@ -39,12 +39,12 @@ function MainBody() {
                 // border: '10px solid white',
             }}
         >
-            {/* <Canvas dwidth={width} dheight={height} style={{ position: 'absolute', display: 'flex', }} /> */}
+            <Canvas style={{ position: 'absolute', display: 'flex', width: '100%', height: '100%'}} />
             {/* <h1 style={{color:'#37D4B8', fontSize:'100px', fontFamily:'Roboto, Exo, Arial,', marginLeft:'5%'}}> Hello! </h1>
             <h1 style={{color:'#37D4B8', fontSize:'100px', fontFamily:'Roboto, Exo, Arial,', marginLeft:'5%'}}> I'm Timothy </h1> */}
-            <div style={{ width: '100%',  height: '100px', backgroundColor: 'red', position: 'absolute', top: '0px', left: '0px' }}> 
+            {/* <div style={{ width: '100%',  height: '100px', backgroundColor: 'red', position: 'absolute', top: '0px', left: '0px' }}> 
 
-            </div>
+            </div> */}
         </Box>
     )
 }

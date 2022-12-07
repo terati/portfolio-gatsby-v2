@@ -1,6 +1,6 @@
 ---
 slug: "/blog/peace-pharmacy"
-date: "2022-11-01"
+date: "2022-11-25"
 title: "Peace Pharmacy Web"
 featuredImage: ../images/peace_pharmacy_design.PNG
 tags: ["project"]

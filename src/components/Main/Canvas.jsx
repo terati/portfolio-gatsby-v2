@@ -32,7 +32,6 @@ function Canvas(props) {
       ctx.fillStyle = 'rgba('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')'
       ctx.fill();
     }
-    console.log("HIT");
 
   }
 
@@ -50,20 +49,20 @@ function Canvas(props) {
     canvas.width = dwidth;
     draw(context, frameCount)
 
-    // //Our draw came here
-    // const render = () => {
-    //   frameCount++
-    //   // resizeCanvas(canvas);
-    //   canvas.height = dheight;
-    //   canvas.width = dwidth;
-    //   draw(context, frameCount)
-    //   animationFrameId = window.requestAnimationFrame(render)
-    // }
-    // render()
+    //Our draw came here
+    const render = () => {
+      frameCount++
+      // resizeCanvas(canvas);
+      canvas.height = dheight;
+      canvas.width = dwidth;
+      draw(context, frameCount)
+      animationFrameId = window.requestAnimationFrame(render)
+    }
+    render()
     
-    // return () => {
-    //   window.cancelAnimationFrame(animationFrameId)
-    // }
+    return () => {
+      window.cancelAnimationFrame(animationFrameId)
+    }
   }, [draw])
   
   return (

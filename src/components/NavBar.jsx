@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { navigate } from "gatsby"
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import { Button } from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -58,12 +59,13 @@ const ThemeTogglerSwitch = () => {
 }
 
 return (
-  <button
+  <Button
     onClick={handler}
-    style={{backgroundColor: themes[theme].background}}
+    style={{
+      backgroundColor: themes[theme].background}}
   >
     Toggle Theme
-  </button>
+  </Button>
 )
 }
 
@@ -75,7 +77,8 @@ function NavBar( props ) {
   const height = 1400;
   // const width = 1400;
   const { hidden, setHidden } = useState(false);
-  const theme = useTheme();
+  // const theme = useTheme();
+  const { theme } = React.useContext(ThemeContext);
   // const colorMode = React.useContext(ColorModeContext);
   // useEffect(() => {
   //   console.log(width);
@@ -138,6 +141,7 @@ function NavBar( props ) {
     top: 0,
     left: 0,
     // backgroundColor: 'white',
+    backgroundColor: themes[theme].foreground, 
     backdropFilter: 'blur(20px)',
     boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.10)',
     zIndex: 99,
@@ -170,16 +174,16 @@ function NavBar( props ) {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        bgcolor: 'background.default',
+        // bgcolor: 'background.default',
         borderRadius: '30px',
         paddingTop: '20px',
         paddingBottom: '20px',
         height: '100%',
         // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
       }}>
-        {/* <CottageOutlinedIcon style={{height: '20px'}} sx={props.name == 'home' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} />
-        <CodeIcon style={{height: '20px'}} sx={props.name == 'portfolio' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Portfolio")}} /> */}
-        <PersonOutlineIcon style={{height: '20px'}} sx={props.name == 'about' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/About")}} />
+        {/* <CottageOutlinedIcon style={{height: '20px'}} sx={props.name == 'home' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} /> */}
+        {/* <CodeIcon style={{height: '20px'}} sx={props.name == 'portfolio' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} /> */}
+        <PersonOutlineIcon style={{height: '20px'}} sx={props.name == 'about' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} />
         <BookOutlinedIcon style={{height: '20px'}} sx={props.name == 'blog' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Blog")}} />
         {/* <MailOutlineOutlinedIcon style={{height: '20px'}} sx={props.name == 'contact' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Contact")}} /> */}
         <ThemeTogglerSwitch />

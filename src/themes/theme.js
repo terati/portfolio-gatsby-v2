@@ -2,12 +2,18 @@ import * as React from 'react';
 
 export const themes = {
   light: {
-    foreground: '#000000',
-    background: '#eeeeee',
+    foreground: '#ffffff',
+    background: '#ffffff',
+    neutral_background: '#1a1a1a',
+    neutral_test: '#000000',
+    selection_test: '#000000'
   },
   dark: {
-    foreground: '#ffffff',
-    background: '#222222',
+    foreground: '#171717',
+    background: '#2f2f30',
+    neutral_background: '#1a1a1a',
+    neutral_test: '#d8d4cf',
+    selection_test: '#e8e6e3'
   },
 }
 
@@ -21,11 +27,11 @@ export const ThemeProvider = ({element}) => {
   );
 
   return (
-    // <ThemeContext.Provider value={value}>
+    <ThemeContext.Provider value={value}>
       <>
         {element}
       </>
       
-    // </ThemeContext.Provider>
+    </ThemeContext.Provider>
   )
 }
