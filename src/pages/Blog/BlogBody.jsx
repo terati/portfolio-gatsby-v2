@@ -231,7 +231,7 @@ function BlogBody() {
                   month = months[parseInt(month)-1]
                   return (
                     <Box key={idx} sx={{
-                        marginBottom: '20px',
+                        paddingBottom: '20px',
                         fontFamily: 'Roboto-G',
                       }}
                     >

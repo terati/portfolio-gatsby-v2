@@ -11,6 +11,7 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 import Divider from '@mui/material/Divider';
 
 import CottageOutlinedIcon from '@mui/icons-material/CottageOutlined';
@@ -19,6 +20,9 @@ import CodeIcon from '@mui/icons-material/Code';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BookOutlinedIcon from '@mui/icons-material/BookOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
+
+import LightModeIcon from '@mui/icons-material/LightMode';
+import NightlightIcon from '@mui/icons-material/Nightlight';
 
 import { themes } from './../themes/theme';
 import { ThemeContext } from '../context/ThemeContext';
@@ -48,23 +52,25 @@ const ThemeTogglerSwitch = () => {
   const { theme, setTheme } = React.useContext(ThemeContext);
 
   const handler = () => {
-    console.log(setTheme);
     if (theme === 'light'){
       setTheme('dark');
       console.log('hit');
     } else {
       setTheme('light');
     }
-    console.log(theme);
 }
 
 return (
   <Button
     onClick={handler}
     style={{
-      backgroundColor: themes[theme].background}}
+      // backgroundColor: themes[theme].background,
+      // borderRadius: '10px',
+      borderLeft: 'solid 1px #37D4B8'
+    }}
   >
-    Toggle Theme
+    { theme=="light" && <LightModeIcon /> }
+    { theme=="dark" && <NightlightIcon /> }
   </Button>
 )
 }
@@ -141,7 +147,7 @@ function NavBar( props ) {
     top: 0,
     left: 0,
     // backgroundColor: 'white',
-    backgroundColor: themes[theme].foreground, 
+    // backgroundColor: themes[theme].foreground, 
     backdropFilter: 'blur(20px)',
     boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.10)',
     zIndex: 99,
@@ -151,7 +157,6 @@ function NavBar( props ) {
       flexDirection: 'row',
       position: 'relative',
       justifyContent: 'space-between',
-      // padding: '0 160px',
       maxWidth: '1200px',
       alignItems: 'center',
       height: '100%',
@@ -160,10 +165,6 @@ function NavBar( props ) {
       left: 0,
     }}>
       <Box sx={{
-        // padding: '5px 50px',
-        // height: '100%',
-        // borderRadius: '20px',
-        // backgroundColor: 'white',
       }}>
         <Typography variant="h5">
           { text }
@@ -183,8 +184,12 @@ function NavBar( props ) {
       }}>
         {/* <CottageOutlinedIcon style={{height: '20px'}} sx={props.name == 'home' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} /> */}
         {/* <CodeIcon style={{height: '20px'}} sx={props.name == 'portfolio' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} /> */}
-        <PersonOutlineIcon style={{height: '20px'}} sx={props.name == 'about' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} />
-        <BookOutlinedIcon style={{height: '20px'}} sx={props.name == 'blog' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Blog")}} />
+        <Tooltip title="About" arrow>
+          <PersonOutlineIcon style={{height: '20px'}} sx={props.name == 'about' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/")}} />
+        </Tooltip>
+        <Tooltip title="Blog" arrow>
+          <BookOutlinedIcon style={{height: '20px'}} sx={props.name == 'blog' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Blog")}} />
+        </Tooltip>
         {/* <MailOutlineOutlinedIcon style={{height: '20px'}} sx={props.name == 'contact' ? SelectedIconDefaultStyle : IconDefaultStyle} onClick={() => {navigate("/Contact")}} /> */}
         <ThemeTogglerSwitch />
       </Box>

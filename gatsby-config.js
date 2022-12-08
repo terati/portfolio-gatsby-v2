@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Timothy Wong`,
-    description: `Timothy's personal site.`,
+    title: `Timothy`,
+    description: `Timothy's blog.`,
     // siteUrl: 'wongtimothy.com',
-    author: `Timothy Wong`,
+    author: `Timothy W`,
   },
   plugins: [
     `gatsby-plugin-material-ui`,
@@ -35,7 +35,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/t_logo.png`,
       },
     },
 

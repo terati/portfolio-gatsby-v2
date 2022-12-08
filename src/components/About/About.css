@@ -1,0 +1,16 @@
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0px 0;
+  }
+}
+
+.about {
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-position: 50% 50%;
+  animation: animatedBackground 1s linear infinite alternate;
+}
