@@ -17,6 +17,8 @@ import "@fontsource/open-sans";
 import { themes } from "../themes/theme";
 import { ThemeContext } from "../context/ThemeContext";
 import { Helmet } from "react-helmet";
+import 'prismjs/themes/prism-tomorrow.css';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 
 const useStyles = makeStyles(theme => ({
   HoverFocus: {
@@ -80,7 +82,7 @@ export default function Template({
             // borderRight: '1px solid #E4E4E4',
           }}>
             <div className="blog-post-container">
-              <div className="blog-post" style={{boxSizing: 'border-box'}}>
+              <div className="blog-post" style={{boxSizing: 'border-box', maxWidth: '100vw'}}>
                 <Box>
                   <Link onClick={() => navigate('/Blog')} sx={{ cursor: 'pointer' }}> blog </Link> 
                   /
