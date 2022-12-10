@@ -17,8 +17,8 @@ import "@fontsource/open-sans";
 import { themes } from "../themes/theme";
 import { ThemeContext } from "../context/ThemeContext";
 import { Helmet } from "react-helmet";
-import 'prismjs/themes/prism-tomorrow.css';
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+// import 'prismjs/themes/prism-tomorrow.css';
+// import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 
 const useStyles = makeStyles(theme => ({
   HoverFocus: {
@@ -56,20 +56,26 @@ export default function Template({
                   // backgroundColor: '#222020',
                   backgroundColor: themes[theme].background,
                   color: themes[theme].neutral_test,
+                  boxSizing: 'border-box'
               }}>
         <NavBar name='blog' text={"Blog"} /> 
         <Box sx={{
             display: 'flex',
             justifyContent: 'start',
+            width: '100%',
             maxWidth: '800px',
             width: '100%',
             p: 0,
             paddingTop: '10px',
             backgroundColor: themes[theme].background,
+            boxSizing: 'border-box',
             // m: 1,
         }}>
           <Box component="main" sx={{ 
             display: 'flex',
+            maxWidth: '100vw',
+            // width: '100%',
+
             // maxWidth: '900px', 
             // paddingTop: '10px',
             paddingLeft: '20px',
@@ -79,6 +85,7 @@ export default function Template({
             // alignItems: "flex-start",
 
             fontFamily: 'Open Sans',
+            boxSizing: 'border-box'
             // borderRight: '1px solid #E4E4E4',
           }}>
             <div className="blog-post-container">
@@ -144,7 +151,10 @@ export default function Template({
                 }}/>
                 <Box
                   className="blog-post-content"
-                  dangerouslySetInnerHTML={{ __html: html }}
+                  dangerouslySetInnerHTML={{ 
+                    __html: html 
+                    // __html: data.allMarkdownRemark.nodes[0].html,
+                  }}
                   sx={{
                     maxWidth: '100vw',
                   }}
