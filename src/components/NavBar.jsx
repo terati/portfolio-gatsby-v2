@@ -40,7 +40,7 @@ color: 'rgba(64,64,64,1)',
 const SelectedIconDefaultStyle = {
 fontSize: 30,
 margin: '15px 10px',
-color: '#37D4B8',
+color: '#350ced',
 "&:hover": {
   color: '#37D4B8',
   cursor: 'pointer'
@@ -66,7 +66,9 @@ return (
     style={{
       // backgroundColor: themes[theme].background,
       // borderRadius: '10px',
-      borderLeft: 'solid 1px #37D4B8'
+      borderRadius: 0,
+      borderLeft: 'solid 1px grey',
+      color: 'grey'
     }}
   >
     { theme=="light" && <LightModeIcon /> }
@@ -166,7 +168,7 @@ function NavBar( props ) {
     }}>
       <Box sx={{
       }}>
-        <Typography variant="h5">
+        <Typography variant="h5" sx={{ color: '#350ced' }}>
           { text }
         </Typography>
       </Box>

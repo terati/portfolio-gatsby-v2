@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Timothy`,
     description: `Timothy's blog.`,
-    // siteUrl: 'wongtimothy.com',
+    siteUrl: 'wongtimothy.com',
     author: `Timothy W`,
   },
   plugins: [
@@ -31,8 +31,8 @@ module.exports = {
         name: `timothy`,
         short_name: `timothy`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#350ced`,
+        theme_color: `#350ced`,
         display: `minimal-ui`,
         icon: `src/images/t_logo.png`,
       },

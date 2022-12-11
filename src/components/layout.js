@@ -1,16 +1,9 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/static-query/
- */
-
  import React from "react"
  import PropTypes from "prop-types"
  import { StaticQuery, graphql } from "gatsby"
  import { Helmet } from "react-helmet"
+ import NavBar from "./NavBar"
  
- import Header from "./header"
  import "./layout.css"
  
  const Layout = ({ children }) => (
@@ -29,7 +22,8 @@
         <Helmet>
           <title>Timothy</title>
         </Helmet>
-         <Header siteTitle={data.site.siteMetadata.title} />
+         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+         <NavBar />
          <div
            style={{
              margin: `0 auto`,
@@ -40,9 +34,9 @@
          >
            <main>{children}</main>
            <footer>
-             © {new Date().getFullYear()}, Built with
+             © {new Date().getFullYear()}. Designed and created by Timothy Wong
              {` `}
-             <a href="https://www.gatsbyjs.com">Gatsby</a>
+             
            </footer>
          </div>
        </>
