@@ -8,9 +8,15 @@ import NavBar from "../components/NavBar";
 import Main from "../components/Main";
 import About from "../components/About";
 import { Helmet } from "react-helmet";
+import TagManager from 'react-gtm-module';
 import "./index.css";
 
 const IndexPage = () => {
+  const tagManagerArgs = {
+    gtmId: 'GTM-N6CQT6C'
+  }
+
+  TagManager.initialize(tagManagerArgs);
 
   return (
     <>
