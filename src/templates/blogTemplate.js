@@ -41,7 +41,7 @@ export default function Template({
   let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
   return (
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang : 'en' }}>
         <title>Timothy</title>
         <meta name="description" content="Personal website for Timothy W" />
         <meta property="og:site_name" content="Blog - Timothy W" />

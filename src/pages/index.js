@@ -14,7 +14,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang : 'en' }}>
         <title>Timothy</title>
         <meta name="description" content="Personal website for Timothy W" />
         <meta property="og:site_name" content="About - Timothy W" />

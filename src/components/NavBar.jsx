@@ -56,7 +56,6 @@ const ThemeTogglerSwitch = () => {
   const handler = () => {
     if (theme === 'light'){
       setTheme('dark');
-      console.log('hit');
     } else {
       setTheme('light');
     }
@@ -64,6 +63,7 @@ const ThemeTogglerSwitch = () => {
 
 return (
   <Button
+    aria-label='light dark mode toggle'
     onClick={handler}
     style={{
       // backgroundColor: themes[theme].background,
@@ -91,7 +91,6 @@ function NavBar( props ) {
   const { theme } = React.useContext(ThemeContext);
   // const colorMode = React.useContext(ColorModeContext);
   // useEffect(() => {
-  //   console.log(width);
   // }, [hidden])
   // const theme = useTheme();
   // const [open, setOpen] = React.useState(false);

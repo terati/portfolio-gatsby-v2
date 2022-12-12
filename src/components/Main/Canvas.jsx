@@ -6,7 +6,6 @@ function Canvas(props) {
 
   function resizeCanvas(canvas) {
     const { width, height } = canvas.getBoundingClientRect()
-    console.log(width, height);
     if (canvas.width !== width || canvas.height !== height) {
       const { devicePixelRatio:ratio=1 } = window
       const context = canvas.getContext('2d')
@@ -36,7 +35,6 @@ function Canvas(props) {
   }
 
   useEffect(() => {
-    console.log(dwidth, dheight)
   }, [dwidth, dheight]);
 
   useEffect(() => {

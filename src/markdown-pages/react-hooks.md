@@ -41,7 +41,7 @@ function SomeComponent() {
     const response = async fetch('someDataAPI')
             //fetching data when the component initially mounts.
             .then((data) => setData(data))
-            .catch((err) => console.log(err))
+            .catch((err) => {})
   }, [])   // An empty array ==> []
 
   return 

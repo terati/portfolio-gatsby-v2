@@ -7,6 +7,7 @@ import { useMediaQuery } from '@material-ui/core';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { Paper } from '@mui/material';
+import { StaticImage } from 'gatsby-plugin-image';
 import { ThemeContext } from '../../context/ThemeContext';
 import { themes } from '../../themes/theme';
 import "./About.css";
@@ -139,28 +140,263 @@ function AboutBody() {
               padding: 0, 
               margin: 0,
             }} 
-            cols={matches ? 3 : 2}
-            gap={10}
+            cols={3} //{matches ? 3 : 2}
+            gap={0}
             variant="standard"
-            // rowHeight={164}
             >
-                  {itemData.map((item) => {
+              <ImageListItem key={'x1'}
+                cols={1}
+              >
+                <StaticImage 
+                  src="../../../static/cupcake.PNG"
+                  placeholder="blurred"
+                  alt="cupcake"
+                  objectPosition="50% 50%"
+                  objectCover="cover"
+                  // width={500}
+                  // height={500}
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x2'}
+                cols={2}
+              >
+                <StaticImage 
+                  src="../../../static/gentleman.PNG"
+                  placeholder="blurred"
+                  alt="gentleman"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                  // width={1000}
+                  // height={500}
+                  // style={{
+                  //   width: '1500px',
+                  //   height: '500px'
+                  // }}
+                  objectPosition="50% 50%"
+                />
+              </ImageListItem>
+              <ImageListItem key={'x16'}>
+                <StaticImage 
+                  src="../../../static/ramen2.PNG"
+                  placeholder="blurred"
+                  alt="ramen2"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              
+              <ImageListItem key={'x4'}>
+                <StaticImage 
+                  src="../../../static/burger.PNG"
+                  placeholder="blurred"
+                  alt="burger"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x5'}>
+                <StaticImage 
+                  src="../../../static/cheesecake.PNG"
+                  placeholder="blurred"
+                  alt="cheesecake"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x14'}
+                cols={2}
+              >
+                <StaticImage 
+                  src="../../../static/old_gentleman.PNG"
+                  placeholder="blurred"
+                  alt="old_gentlman"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x6'}>
+                <StaticImage 
+                  src="../../../static/chinatown.PNG"
+                  placeholder="blurred"
+                  alt="chinatown"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x7'}>
+                <StaticImage 
+                  src="../../../static/glass.PNG"
+                  placeholder="blurred"
+                  alt="glass"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+
+
+
+              <ImageListItem key={'x8'}>
+                <StaticImage 
+                  src="../../../static/hermione.PNG"
+                  placeholder="blurred"
+                  alt="hermione"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x9'}>
+                <StaticImage 
+                  src="../../../static/kitkat.PNG"
+                  placeholder="blurred"
+                  alt="kitkat"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x10'}>
+                <StaticImage 
+                  src="../../../static/netero.PNG"
+                  placeholder="blurred"
+                  alt="netero"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x12'}
+                cols={2}
+                rows={2}
+              >
+                <StaticImage 
+                  src="../../../static/strawberries.PNG"
+                  placeholder="blurred"
+                  alt="strawberries"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x11'}>
+                <StaticImage 
+                  src="../../../static/newParrots.PNG"
+                  placeholder="blurred"
+                  alt="newParrots"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x13'}>
+                <StaticImage 
+                  src="../../../static/parrots0.PNG"
+                  placeholder="blurred"
+                  alt="parrots0"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x14'}>
+                <StaticImage 
+                  src="../../../static/ramen0.PNG"
+                  placeholder="blurred"
+                  alt="ramen0"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x18'}>
+                <StaticImage 
+                  src="../../../static/skyscraper_up.PNG"
+                  placeholder="blurred"
+                  alt="skyscraper_up"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              <ImageListItem key={'x3'}
+                cols={2}
+                rows={2}
+              >
+                <StaticImage 
+                  src="../../../static/parrots1.PNG"
+                  placeholder="blurred"
+                  alt="parrots1"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+
+              <ImageListItem key={'x15'}>
+                <StaticImage 
+                  src="../../../static/strawberry_tart.PNG"
+                  placeholder="blurred"
+                  alt="strawberry_tart"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+              
+              <ImageListItem key={'x17'}>
+                <StaticImage 
+                  src="../../../static/skyscraper_scraper.PNG"
+                  placeholder="blurred"
+                  alt="skyscraper_scraper"
+                  style={{
+                    width: '100%',
+                    height: '100%'
+                  }}
+                />
+              </ImageListItem>
+
+
+                  {/* {itemData.map((item) => {
                     return (
                       
                       <ImageListItem key={item.img}
                       >
                           <img
                               src={item.img}
-                              // srcSet={item.img}
-                              // width={100}
-                              // height={100}
-                              // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                               alt={item.title}
                               loading="lazy"
                               style={{ borderRadius: '10px' }}
                           />
                       </ImageListItem>
-                  )})}
+                  )})} */}
               </ImageList>
         </Box>
     </Box>
