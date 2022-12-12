@@ -1,6 +1,6 @@
 ---
 slug: "/blog/react-hooks"
-date: "2020-11-20"
+date: "2021-03-20"
 title: "React Hooks"
 featuredImage: ../images/hooks.jpg
 tags: ["article", "react"]

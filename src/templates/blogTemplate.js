@@ -178,7 +178,7 @@ export default function Template({
                   justifyContent: 'center',
                   alignItems: 'start',
                   fontSize: 'smaller',
-                  backgroundColor: '#37D4B8',
+                  backgroundColor: '#350ced',
                   color: 'white',
                   padding: '20px 10px',
                   fontFamily: 'Roboto',
