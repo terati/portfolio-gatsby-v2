@@ -43,6 +43,13 @@ export default function Template({
     <>
       <Helmet>
         <title>Timothy</title>
+        <meta name="description" content="Personal website for Timothy W" />
+        <meta property="og:site_name" content="Blog - Timothy W" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="article" />
+        <meta name="keywords" content="Timothy Wong, blog, software" />
+        <meta name="author" content="Timothy Wong" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
       <Box sx={{ 
                   display: 'flex',
