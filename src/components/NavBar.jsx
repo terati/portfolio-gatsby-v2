@@ -24,6 +24,8 @@ import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NightlightIcon from '@mui/icons-material/Nightlight';
 
+import ReactGA from 'react-ga';
+
 import { themes } from './../themes/theme';
 import { ThemeContext } from '../context/ThemeContext';
 
@@ -101,6 +103,12 @@ function NavBar( props ) {
   // const handleDrawerClose = () => {
   //   setOpen(false);
   // };
+
+  React.useEffect(() => {
+    ReactGA.initialize('UA-251777477-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, [])
+
   return (
   <>
 
